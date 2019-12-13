@@ -1,0 +1,80 @@
+.sideBar__container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  //   background-color: rgba(255, 255, 255, 0.92);
+  //   background-color: #f1e5c0;
+  background-color: rgba(#f1e5c0, 0.9);
+  z-index: 21;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 8rem 0rem 2rem 0rem;
+
+  /* 
+    Close sidebar button
+  */
+  .closeSidebar {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* 
+    Sidebar navigation
+  */
+  .sideBar__navigation {
+    list-style: none;
+    &-item {
+      text-align: center;
+      margin-bottom: 4rem;
+      &--link {
+        color: $color-black;
+        font-weight: 400;
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        position: relative;
+        opacity: 0;
+        &::after {
+          position: absolute;
+          content: '';
+          height: 1px;
+          width: 0;
+          bottom: 0;
+          left: 0;
+          transition: width 0.4s;
+          background-color: $color-black;
+        }
+      }
+      .sideBar__navigation-item--link:hover.sideBar__navigation-item--link::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .coffeeIcons {
+    display: flex;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+      opacity: 0;
+      transform: translateY(5px);
+    }
+  }
+
+  .sideBar__copyright {
+    font-weight: 300;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}

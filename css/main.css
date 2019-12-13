@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500&display=swap");
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 600px) {
+    html {
+      font-size: 45%; } }
+  @media only screen and (max-width: 350px) {
+    html {
+      font-size: 40%; } }
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+a {
+  text-decoration: none; }
+
+body {
+  font-family: 'Montserrat', sans-serif; }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 10rem; }
+  header .logoContainer {
+    width: 10rem;
+    height: 10rem;
+    z-index: 20; }
+    header .logoContainer img {
+      width: 100%;
+      height: 100%; }
+  header .navigation {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+    /* 
+        * Shopping cart
+    */
+    /* 
+        * Burger navigation 
+    */ }
+    header .navigation .shoppingCart {
+      margin-right: 2rem;
+      width: 3rem;
+      height: 2.5rem; }
+      header .navigation .shoppingCart img {
+        width: 100%;
+        height: 100%; }
+    header .navigation .burgerNav {
+      display: block; }
+      header .navigation .burgerNav span {
+        display: block;
+        width: 3rem;
+        height: 3px;
+        margin-bottom: 0.5rem;
+        background-color: #eee; }
+        header .navigation .burgerNav span:last-of-type {
+          margin-bottom: 0; }
+
+.sideBar__container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: rgba(241, 229, 192, 0.9);
+  z-index: 21;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 8rem 0rem 2rem 0rem;
+  /* 
+    Close sidebar button
+  */
+  /* 
+    Sidebar navigation
+  */ }
+  .sideBar__container .closeSidebar {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0; }
+    .sideBar__container .closeSidebar img {
+      width: 100%;
+      height: 100%; }
+  .sideBar__container .sideBar__navigation {
+    list-style: none; }
+    .sideBar__container .sideBar__navigation-item {
+      text-align: center;
+      margin-bottom: 4rem; }
+      .sideBar__container .sideBar__navigation-item--link {
+        color: #30271c;
+        font-weight: 400;
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        position: relative;
+        opacity: 0; }
+        .sideBar__container .sideBar__navigation-item--link::after {
+          position: absolute;
+          content: '';
+          height: 1px;
+          width: 0;
+          bottom: 0;
+          left: 0;
+          transition: width 0.4s;
+          background-color: #30271c; }
+      .sideBar__container .sideBar__navigation-item .sideBar__navigation-item--link:hover.sideBar__navigation-item--link::after {
+        width: 100%; }
+  .sideBar__container .coffeeIcons {
+    display: flex; }
+    .sideBar__container .coffeeIcons img {
+      width: 4rem;
+      height: 4rem;
+      opacity: 0;
+      transform: translateY(5px); }
+  .sideBar__container .sideBar__copyright {
+    font-weight: 300;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(5px); }
+
+.homepageContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  /* 
+    * Styles for images on homepage
+  */
+  /* 
+    * Styles for first image on homepage
+  */
+  /* 
+    * Styles for second image on homepage
+  */
+  /* 
+    * Styles for third image on homepage
+  */ }
+  .homepageContainer .homepage__shape-1,
+  .homepageContainer .homepage__shape-2,
+  .homepageContainer .homepage__shape-3 {
+    height: 100%;
+    transition: all 0.7s;
+    background-size: cover;
+    overflow: hidden;
+    position: relative; }
+    .homepageContainer .homepage__shape-1 .homepage__shape-overlay,
+    .homepageContainer .homepage__shape-2 .homepage__shape-overlay,
+    .homepageContainer .homepage__shape-3 .homepage__shape-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer; }
+  .homepageContainer .homepage__shape-1 {
+    width: 40vw;
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+    background-image: url("../img/homepageimage1.jpg");
+    background-position: right; }
+  .homepageContainer .homepage__shape-1:hover {
+    width: 50vw;
+    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%); }
+  .homepageContainer .homepage__shape-2 {
+    width: 80vw;
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 25% 100%);
+    background-image: url("../img/homepageimage2.jpg");
+    background-position: left;
+    margin-left: -250px; }
+  .homepageContainer .homepage__shape-2:hover {
+    width: 100vw;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%); }
+  .homepageContainer .homepage__shape-3 {
+    width: 50vw;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 47% 100%);
+    background-image: url("../img/homepageimage3.jpg");
+    background-position: left;
+    margin-left: -300px; }
+    .homepageContainer .homepage__shape-3:hover {
+      width: 60vw;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%); }

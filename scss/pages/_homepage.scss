@@ -1,0 +1,75 @@
+.homepageContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  /* 
+    * Styles for images on homepage
+  */
+  .homepage__shape-1,
+  .homepage__shape-2,
+  .homepage__shape-3 {
+    height: 100%;
+    transition: all 0.7s;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+
+    .homepage__shape-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+  }
+  /* 
+    * Styles for first image on homepage
+  */
+  .homepage__shape-1 {
+    width: 40vw;
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+    background-image: url('../img/homepageimage1.jpg');
+    background-position: right;
+  }
+  .homepage__shape-1:hover {
+    width: 50vw;
+    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
+  }
+
+  /* 
+    * Styles for second image on homepage
+  */
+  .homepage__shape-2 {
+    width: 80vw;
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 25% 100%);
+    background-image: url('../img/homepageimage2.jpg');
+    background-position: left;
+    margin-left: -250px;
+  }
+  .homepage__shape-2:hover {
+    width: 100vw;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%);
+  }
+
+  /* 
+    * Styles for third image on homepage
+  */
+  .homepage__shape-3 {
+    width: 50vw;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 47% 100%);
+    background-image: url('../img/homepageimage3.jpg');
+    background-position: left;
+    margin-left: -300px;
+
+    &:hover {
+      width: 60vw;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%);
+    }
+  }
+}
