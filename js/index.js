@@ -23,6 +23,9 @@ const tamperImg = document.getElementById('tamperImg');
 const machineImg = document.getElementById('machineImg');
 const copyright = document.querySelector('.sideBar__copyright');
 
+/*
+ * Object with dom elements that we pass into functions where we perform actions on those elements
+ */
 const sideBarAnimationObject = {
   sideBarMenu,
   closeNavBtn,
@@ -41,6 +44,7 @@ const sideBarAnimationObject = {
   machineImg,
   copyright
 };
+
 /*
  * Show sidebar menu
  */

@@ -40,6 +40,12 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 4rem 10rem; }
+  @media only screen and (max-width: 1280px) {
+    header {
+      padding: 4rem 7rem; } }
+  @media only screen and (max-width: 1024px) {
+    header {
+      padding: 2rem 5rem; } }
   header .logoContainer {
     width: 10rem;
     height: 10rem;
@@ -59,9 +65,9 @@ header {
         * Burger navigation 
     */ }
     header .navigation .shoppingCart {
-      margin-right: 2rem;
-      width: 3rem;
-      height: 2.5rem; }
+      margin-right: 20px;
+      width: 30px;
+      height: 25px; }
       header .navigation .shoppingCart img {
         width: 100%;
         height: 100%; }
@@ -69,9 +75,9 @@ header {
       display: block; }
       header .navigation .burgerNav span {
         display: block;
-        width: 3rem;
+        width: 30px;
         height: 3px;
-        margin-bottom: 0.5rem;
+        margin-bottom: 5px;
         background-color: #eee; }
         header .navigation .burgerNav span:last-of-type {
           margin-bottom: 0; }
@@ -96,10 +102,16 @@ header {
   /* 
     Sidebar navigation
   */ }
+  @media only screen and (max-width: 1024px) {
+    .sideBar__container {
+      padding: 6rem 0rem 2rem 0rem; } }
   .sideBar__container .closeSidebar {
     width: 2rem;
     height: 2rem;
     opacity: 0; }
+    @media only screen and (max-width: 1024px) {
+      .sideBar__container .closeSidebar {
+        margin-right: -180px; } }
     .sideBar__container .closeSidebar img {
       width: 100%;
       height: 100%; }
@@ -158,6 +170,9 @@ header {
   /* 
     * Styles for third image on homepage
   */ }
+  @media only screen and (max-width: 1024px) {
+    .homepageContainer {
+      flex-direction: column; } }
   .homepageContainer .homepage__shape-1,
   .homepageContainer .homepage__shape-2,
   .homepageContainer .homepage__shape-3 {
@@ -181,24 +196,54 @@ header {
     clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
     background-image: url("../img/homepageimage1.jpg");
     background-position: right; }
+    @media only screen and (max-width: 1024px) {
+      .homepageContainer .homepage__shape-1 {
+        width: 100vw;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); } }
   .homepageContainer .homepage__shape-1:hover {
     width: 50vw;
     clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%); }
+    @media only screen and (max-width: 1024px) {
+      .homepageContainer .homepage__shape-1:hover {
+        width: 100vw;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); } }
   .homepageContainer .homepage__shape-2 {
     width: 80vw;
     clip-path: polygon(0 0, 70% 0, 100% 100%, 25% 100%);
     background-image: url("../img/homepageimage2.jpg");
     background-position: left;
     margin-left: -250px; }
+    @media only screen and (max-width: 1024px) {
+      .homepageContainer .homepage__shape-2 {
+        width: 100vw;
+        margin-left: 0;
+        clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+        height: 200%;
+        margin-top: -110px; } }
   .homepageContainer .homepage__shape-2:hover {
     width: 100vw;
     clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%); }
+    @media only screen and (max-width: 1024px) {
+      .homepageContainer .homepage__shape-2:hover {
+        width: 100vw;
+        clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); } }
   .homepageContainer .homepage__shape-3 {
     width: 50vw;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 47% 100%);
     background-image: url("../img/homepageimage3.jpg");
     background-position: left;
     margin-left: -300px; }
+    @media only screen and (max-width: 1024px) {
+      .homepageContainer .homepage__shape-3 {
+        width: 100vw;
+        margin-left: 0;
+        height: 100%;
+        margin-top: -110px;
+        clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%); } }
     .homepageContainer .homepage__shape-3:hover {
       width: 60vw;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%); }
+      @media only screen and (max-width: 1024px) {
+        .homepageContainer .homepage__shape-3:hover {
+          width: 100vw;
+          clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%); } }
