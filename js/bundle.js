@@ -131,18 +131,10 @@ var showMenu = function showMenu(elements) {
   });
   TweenMax.to(elements.openNavBtn, 0.4, {
     opacity: 0
-  }); // Width of sidebar menu depends on screen size
-
-  if (screen.width > 1024) {
-    TweenMax.to(elements.sideBarMenu, 0.4, {
-      width: '30rem'
-    });
-  } else if (screen.width < 1024) {
-    TweenMax.to(elements.sideBarMenu, 0.4, {
-      width: '40rem'
-    });
-  }
-
+  });
+  TweenMax.to(elements.sideBarMenu, 0.4, {
+    width: '30rem'
+  });
   TweenMax.to(elements.closeNavBtn, 0.4, {
     opacity: 1,
     delay: 0.5

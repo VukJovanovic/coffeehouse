@@ -21,12 +21,15 @@
     Close sidebar button
   */
   .closeSidebar {
-    width: 2rem;
-    height: 2rem;
+    width: 20px;
+    height: 20px;
     opacity: 0;
+
     @media only screen and (max-width: 1024px) {
-      margin-right: -180px;
+      align-self: flex-end;
+      margin-right: 40px;
     }
+
     img {
       width: 100%;
       height: 100%;
@@ -48,6 +51,9 @@
         padding: 1rem 0;
         position: relative;
         opacity: 0;
+        @media only screen and (max-width: 1024px) {
+          font-size: 2.1rem;
+        }
         &::after {
           position: absolute;
           content: '';
@@ -80,6 +86,9 @@
     font-weight: 300;
     font-size: 1rem;
     opacity: 0;
+    @media only screen and (max-width: 1024px) {
+      font-size: 1.5rem;
+    }
     transform: translateY(5px);
   }
 }

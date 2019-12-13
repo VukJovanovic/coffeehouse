@@ -55,6 +55,11 @@ header {
         height: 3px;
         margin-bottom: 5px;
         background-color: $color-light;
+
+        @media only screen and (max-width: 1024px) {
+          width: 35px;
+          margin-bottom: 6px;
+        }
         &:last-of-type {
           margin-bottom: 0;
         }
