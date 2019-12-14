@@ -202,6 +202,59 @@ header {
       height: 100%;
       background-color: rgba(0, 0, 0, 0.3);
       cursor: pointer; }
+      .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button,
+      .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button,
+      .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+        position: absolute;
+        font-weight: 300;
+        min-width: 170px;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        color: #eee;
+        text-align: center;
+        display: flex;
+        padding: 1rem 0rem; }
+        @media only screen and (max-width: 1024px) {
+          .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button,
+          .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button,
+          .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+            min-width: 140px; } }
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button span,
+        .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button span,
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button span {
+          width: 100%;
+          z-index: 1;
+          padding: 0rem 1rem;
+          text-align: center; }
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button::before, .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button::after,
+        .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button::before,
+        .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button::after,
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button::before,
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 2px;
+          height: 100%;
+          background-color: #eee;
+          transition: all 0.4s ease; }
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button::after,
+        .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button::after,
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button::after {
+          right: 0; }
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover,
+        .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover,
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover {
+          transition: all 0.4s ease;
+          box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+          letter-spacing: 1px;
+          color: #30271c; }
+          .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:before, .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:after,
+          .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:before,
+          .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:after,
+          .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:before,
+          .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:after {
+            width: 51%; }
   .homepageContainer .homepage__shape-1 {
     width: 40vw;
     clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
@@ -211,6 +264,16 @@ header {
       .homepageContainer .homepage__shape-1 {
         width: 100vw;
         clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); } }
+    .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button {
+      bottom: 20rem;
+      left: 10rem; }
+      @media only screen and (max-width: 1280px) {
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button {
+          left: 7rem; } }
+      @media only screen and (max-width: 1024px) {
+        .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button {
+          left: 5rem;
+          bottom: 10rem; } }
   .homepageContainer .homepage__shape-1:hover {
     width: 50vw;
     clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%); }
@@ -224,6 +287,10 @@ header {
     background-image: url("../img/homepageimage2.jpg");
     background-position: left;
     margin-left: -250px; }
+    .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button {
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%); }
     @media only screen and (max-width: 1024px) {
       .homepageContainer .homepage__shape-2 {
         width: 100vw;
@@ -244,6 +311,17 @@ header {
     background-image: url("../img/homepageimage3.jpg");
     background-position: left;
     margin-left: -300px; }
+    .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+      bottom: 20rem;
+      right: 10rem;
+      transform: translateY(-50%); }
+      @media only screen and (max-width: 1280px) {
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+          right: 7rem; } }
+      @media only screen and (max-width: 1024px) {
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+          right: 5rem;
+          bottom: 10rem; } }
     @media only screen and (max-width: 1024px) {
       .homepageContainer .homepage__shape-3 {
         width: 100vw;
