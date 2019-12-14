@@ -8,7 +8,11 @@
     "build:js": "parcel build ./js/index.js --out-dir ./js --out-file bundle.js",
     "watch:sass": "node-sass scss/main.scss css/main.css -w",
     "devServer": "live-server",
-    "start": "npm-run-all --parallel devServer watch:sass"
+    "start": "npm-run-all --parallel devServer watch:sass",
+    "concat:css": "concat -o css/style.concat.css css/main.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all concat:css prefix:css compress:css"
   },
   "author": "Vuk Jovanovic",
   "license": "ISC",
