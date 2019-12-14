@@ -32,8 +32,8 @@ const closeMenu = function(elements) {
   TweenMax.to(elements.homeBtn, 0.4, { opacity: 0, delay: 0.45 });
   TweenMax.to(elements.closeNavBtn, 0.4, { opacity: 0, delay: 0.5 });
   TweenMax.to(elements.sideBarMenu, 0.4, { width: '0rem', delay: 0.7 });
-  TweenMax.to(elements.shoppingCart, 0.4, { opacity: 1, delay: 0.3 });
-  TweenMax.to(elements.openNavBtn, 0.4, { opacity: 1, delay: 0.4 });
+  TweenMax.to(elements.shoppingCart, 0.4, { opacity: 1, delay: 1 });
+  TweenMax.to(elements.openNavBtn, 0.4, { opacity: 1, delay: 1.1 });
 };
 
 export { showMenu, closeMenu };

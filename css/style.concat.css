@@ -246,15 +246,27 @@ header {
         .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover,
         .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover {
           transition: all 0.4s ease;
-          box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
           letter-spacing: 1px;
           color: #30271c; }
+          @media only screen and (max-width: 1024px) {
+            .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover,
+            .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover,
+            .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover {
+              color: #eee;
+              letter-spacing: 2px; } }
           .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:before, .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:after,
           .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:before,
           .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:after,
           .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:before,
           .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:after {
             width: 51%; }
+            @media only screen and (max-width: 1024px) {
+              .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:before, .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button:hover:after,
+              .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:before,
+              .homepageContainer .homepage__shape-2 .homepage__shape-overlay-button:hover:after,
+              .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:before,
+              .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button:hover:after {
+                width: 2px; } }
   .homepageContainer .homepage__shape-1 {
     width: 40vw;
     clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
@@ -264,6 +276,9 @@ header {
       .homepageContainer .homepage__shape-1 {
         width: 100vw;
         clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); } }
+    @media only screen and (max-height: 700px) {
+      .homepageContainer .homepage__shape-1 {
+        padding-top: 100px; } }
     .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button {
       bottom: 20rem;
       left: 10rem; }

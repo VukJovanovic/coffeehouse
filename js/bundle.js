@@ -260,11 +260,11 @@ var closeMenu = function closeMenu(elements) {
   });
   TweenMax.to(elements.shoppingCart, 0.4, {
     opacity: 1,
-    delay: 0.3
+    delay: 1
   });
   TweenMax.to(elements.openNavBtn, 0.4, {
     opacity: 1,
-    delay: 0.4
+    delay: 1.1
   });
 };
 
@@ -361,7 +361,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56423" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
