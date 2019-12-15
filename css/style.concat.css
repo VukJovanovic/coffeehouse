@@ -13,7 +13,7 @@ html {
 body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
   width: 100%;
   height: 100%; }
@@ -31,6 +31,70 @@ a {
 
 body {
   font-family: 'Montserrat', sans-serif; }
+
+.loaderContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  background-color: #30271c; }
+  .loaderContainer .coffee_cup {
+    width: 20px;
+    height: 24px;
+    border: 1px white solid;
+    border-radius: 0px 0px 5px 5px;
+    position: relative; }
+  .loaderContainer .coffee_cup:after,
+  .loaderContainer .coffee_cup:before {
+    position: absolute;
+    content: ''; }
+  .loaderContainer .coffee_cup:after {
+    width: 5px;
+    height: 12px;
+    border: 1px #fff solid;
+    border-left: none;
+    border-radius: 0px 20px 20px 0px;
+    left: 20px; }
+  .loaderContainer .coffee_cup:before {
+    width: 1px;
+    height: 6px;
+    background-color: white;
+    top: -10px;
+    left: 4px;
+    box-shadow: 5px 0px 0px 0px white, 5px -5px 0px 0px white, 10px 0px 0px 0px white;
+    -webkit-animation: steam 1s linear infinite alternate;
+    -moz-animation: steam 1s linear infinite alternate;
+    animation: steam 1s linear infinite alternate; }
+
+@-webkit-keyframes steam {
+  0% {
+    height: 0px; }
+  100% {
+    height: 6px; } }
+
+@-moz-keyframes steam {
+  0% {
+    height: 0px; }
+  100% {
+    height: 6px; } }
+
+@keyframes steam {
+  0% {
+    height: 0px; }
+  100% {
+    height: 6px; } }
+
+.zindexPlus {
+  z-index: 5; }
+
+.zindexMinus {
+  z-index: 4; }
 
 header {
   position: absolute;
@@ -207,8 +271,8 @@ header {
       .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
         position: absolute;
         font-weight: 300;
-        min-width: 170px;
-        font-size: 2.5rem;
+        min-width: 150px;
+        font-size: 2rem;
         letter-spacing: 2px;
         color: #eee;
         text-align: center;
@@ -337,6 +401,9 @@ header {
         .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
           right: 5rem;
           bottom: 10rem; } }
+      @media only screen and (max-height: 700px) {
+        .homepageContainer .homepage__shape-3 .homepage__shape-overlay-button {
+          bottom: 7rem; } }
     @media only screen and (max-width: 1024px) {
       .homepageContainer .homepage__shape-3 {
         width: 100vw;
@@ -351,3 +418,12 @@ header {
         .homepageContainer .homepage__shape-3:hover {
           width: 100vw;
           clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%); } }
+
+.productContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-height: 100vh;
+  padding-bottom: 1000px;
+  background-color: #eee;
+  overflow-y: scroll; }
