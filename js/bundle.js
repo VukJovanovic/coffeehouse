@@ -123,7 +123,34 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.closeMenu = exports.showMenu = void 0;
+exports.productPageHide = exports.productPageShow = exports.closeMenu = exports.showMenu = exports.homepageLoad = void 0;
+
+/**
+ *
+ *    page load animation
+ *
+ */
+var homepageLoad = function homepageLoad(elements) {
+  TweenMax.to(elements.homepageShapeOne, 0.3, {
+    opacity: 1,
+    x: 0
+  });
+  TweenMax.to(elements.homepageShapeTwo, 0.3, {
+    opacity: 1
+  });
+  TweenMax.to(elements.homepageShapeThree, 0.3, {
+    opacity: 1,
+    x: 0
+  });
+};
+/**
+ *
+ *    Show sidebar animation
+ *
+ */
+
+
+exports.homepageLoad = homepageLoad;
 
 var showMenu = function showMenu(elements) {
   TweenMax.to(elements.shoppingCart, 0.4, {
@@ -194,6 +221,12 @@ var showMenu = function showMenu(elements) {
     delay: 1
   });
 };
+/**
+ *
+ *    Hide sidebar animation
+ *
+ */
+
 
 exports.showMenu = showMenu;
 
@@ -269,6 +302,22 @@ var closeMenu = function closeMenu(elements) {
 };
 
 exports.closeMenu = closeMenu;
+
+var productPageShow = function productPageShow(elements) {
+  TweenMax.to(elements.productpage, 0.4, {
+    width: '100vw'
+  });
+};
+
+exports.productPageShow = productPageShow;
+
+var productPageHide = function productPageHide(elements) {
+  TweenMax.to(elements.productpage, 0.4, {
+    width: '0rem'
+  });
+};
+
+exports.productPageHide = productPageHide;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -277,7 +326,35 @@ var _animations = require("./animations");
 /*
  * DOM elements
  */
+var loader = document.querySelector('.loaderContainer'); // homepage elements
+
+var homepage = document.getElementById('homepage');
+var homepageShapeOne = document.querySelector('.homepage__shape-1');
+var homepageShapeTwo = document.querySelector('.homepage__shape-2');
+var homepageShapeThree = document.querySelector('.homepage__shape-3');
+/**
+ *
+ *  Object that contains homepage elements
+ *
+ */
+
+var homepageObject = {
+  homepageShapeOne: homepageShapeOne,
+  homepageShapeTwo: homepageShapeTwo,
+  homepageShapeThree: homepageShapeThree
+}; // product elements
+
+var productpage = document.getElementById('productpage');
+var productpageObject = {
+  productpage: productpage
+};
+/**
+ *
+ *  Object that contains product page elements
+ *
+ */
 // header elements
+
 var openNavBtn = document.querySelector('.burgerNav');
 var shoppingCart = document.querySelector('.shoppingCart'); // sidebar elements
 
@@ -296,7 +373,7 @@ var tamperImg = document.getElementById('tamperImg');
 var machineImg = document.getElementById('machineImg');
 var copyright = document.querySelector('.sideBar__copyright');
 /*
- * Object with dom elements that we pass into functions where we perform actions on those elements
+ * Object with dom elements that are associated with menu, we pass the object into functions where we perform actions on those elements
  */
 
 var sideBarAnimationObject = {
@@ -317,6 +394,12 @@ var sideBarAnimationObject = {
   machineImg: machineImg,
   copyright: copyright
 };
+/**
+ *
+ * Loader
+ *
+ */
+
 /*
  * Show sidebar menu
  */
@@ -333,6 +416,76 @@ closeNavBtn.addEventListener('click', function (e) {
   e.preventDefault();
   (0, _animations.closeMenu)(sideBarAnimationObject);
 });
+/*
+
+    * Sidebar navigation functionality 
+
+*/
+
+var pages = [homepage, productpage];
+homeBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  var active = checkIfActive(pages); // If homepage is allready active we just close the sidebar menu
+
+  if (checkIfActive(pages) === homepage) {
+    (0, _animations.closeMenu)(sideBarAnimationObject);
+  } else {
+    if (active === productpage) {
+      (0, _animations.productPageHide)(productpageObject);
+    }
+
+    (0, _animations.closeMenu)(sideBarAnimationObject);
+    removeClass(active);
+    addClass(homepage);
+  }
+});
+/**
+ *
+ *  Product page
+ *
+ */
+
+productBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  var active = checkIfActive(pages);
+
+  if (active === productpage) {
+    (0, _animations.closeMenu)(sideBarAnimationObject);
+  } else {
+    (0, _animations.closeMenu)(sideBarAnimationObject);
+    removeClass(active);
+    addClass(productpage);
+    (0, _animations.productPageShow)(productpageObject);
+  }
+});
+/**
+ *
+ * Function that checks in list of elements if one of them have a class active and if thes is one it returs it
+ *
+ */
+
+var checkIfActive = function checkIfActive(pages) {
+  var temp;
+  pages.forEach(function (page) {
+    if (page.classList.contains('active')) {
+      temp = page;
+    }
+  });
+  return temp;
+};
+
+var removeClass = function removeClass(element) {
+  element.classList.remove('active', 'zindexPlus');
+  element.classList.add('zindexMinus');
+};
+
+var addClass = function addClass(element) {
+  element.classList.add('active', 'zindexPlus');
+
+  if (element.classList.contains('zindexMinus')) {
+    element.classList.remove('zindexMinus');
+  }
+};
 },{"./animations":"animations.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
