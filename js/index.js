@@ -17,6 +17,7 @@ const homepage = document.getElementById('homepage');
 const homepageShapeOne = document.querySelector('.homepage__shape-1');
 const homepageShapeTwo = document.querySelector('.homepage__shape-2');
 const homepageShapeThree = document.querySelector('.homepage__shape-3');
+const homepageProductBtn = document.getElementById('homepageProductBtn');
 
 /**
  *
@@ -45,6 +46,8 @@ const productpageObject = {
 // header elements
 const openNavBtn = document.querySelector('.burgerNav');
 const shoppingCart = document.querySelector('.shoppingCart');
+const shoppingCartImage = document.getElementById('shoppingCartImage');
+const logoImage = document.getElementById('logoImage');
 
 // sidebar elements
 const closeNavBtn = document.querySelector('.closeSidebar');
@@ -124,9 +127,12 @@ homeBtn.addEventListener('click', function(e) {
     if (active === productpage) {
       productPageHide(productpageObject);
     }
+    changeImageSrc(logoImage, './img/Logo.svg');
+    changeImageSrc(shoppingCartImage, './img/cart.svg');
     closeMenu(sideBarAnimationObject);
     removeClass(active);
     addClass(homepage);
+    changeBurgerColor('whiteBurger', 'blackBurger');
   }
 });
 
@@ -135,24 +141,42 @@ homeBtn.addEventListener('click', function(e) {
  *  Product page
  *
  */
+
+// show product page when button on sidebar is toggled
 productBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
   if (active === productpage) {
     closeMenu(sideBarAnimationObject);
   } else {
-    closeMenu(sideBarAnimationObject);
-    removeClass(active);
-    addClass(productpage);
-    productPageShow(productpageObject);
+    productPageFunctions(active);
   }
 });
 
-/**
- *
- * Function that checks in list of elements if one of them have a class active and if thes is one it returs it
- *
- */
+// show product page when button on homepage shape is toggled
+homepageProductBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  const active = checkIfActive(pages);
+  productPageFunctions(active);
+});
+// show product page when product image is toggled
+homepageShapeTwo.addEventListener('click', function(e) {
+  e.preventDefault();
+  const active = checkIfActive(pages);
+  productPageFunctions(active);
+});
+
+const productPageFunctions = function(active) {
+  changeImageSrc(logoImage, './img/logo-black.svg');
+  changeImageSrc(shoppingCartImage, './img/shopping-cart-black.svg');
+  closeMenu(sideBarAnimationObject);
+  removeClass(active);
+  addClass(productpage);
+  productPageShow(productpageObject);
+  changeBurgerColor('blackBurger', 'whiteBurger');
+};
+
+// Function that checks in list of elements if one of them have a class active and if thes is one it returs it
 const checkIfActive = function(pages) {
   let temp;
   pages.forEach(page => {
@@ -163,13 +187,25 @@ const checkIfActive = function(pages) {
   return temp;
 };
 
+// removing classes from current active element
 const removeClass = function(element) {
   element.classList.remove('active', 'zindexPlus');
   element.classList.add('zindexMinus');
 };
+
+// adding classes to an element that is being toggled from sidebar menu or from homepage buttons
 const addClass = function(element) {
   element.classList.add('active', 'zindexPlus');
   if (element.classList.contains('zindexMinus')) {
     element.classList.remove('zindexMinus');
   }
+};
+
+const changeImageSrc = function(img, src) {
+  img.src = src;
+};
+
+const changeBurgerColor = function(addColor, removeColor) {
+  openNavBtn.classList.remove(removeColor);
+  openNavBtn.classList.add(addColor);
 };

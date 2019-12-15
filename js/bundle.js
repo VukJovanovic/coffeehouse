@@ -312,7 +312,7 @@ var productPageShow = function productPageShow(elements) {
 exports.productPageShow = productPageShow;
 
 var productPageHide = function productPageHide(elements) {
-  TweenMax.to(elements.productpage, 0.4, {
+  TweenMax.to(elements.productpage, 1, {
     width: '0rem'
   });
 };
@@ -332,6 +332,7 @@ var homepage = document.getElementById('homepage');
 var homepageShapeOne = document.querySelector('.homepage__shape-1');
 var homepageShapeTwo = document.querySelector('.homepage__shape-2');
 var homepageShapeThree = document.querySelector('.homepage__shape-3');
+var homepageProductBtn = document.getElementById('homepageProductBtn');
 /**
  *
  *  Object that contains homepage elements
@@ -356,7 +357,9 @@ var productpageObject = {
 // header elements
 
 var openNavBtn = document.querySelector('.burgerNav');
-var shoppingCart = document.querySelector('.shoppingCart'); // sidebar elements
+var shoppingCart = document.querySelector('.shoppingCart');
+var shoppingCartImage = document.getElementById('shoppingCartImage');
+var logoImage = document.getElementById('logoImage'); // sidebar elements
 
 var closeNavBtn = document.querySelector('.closeSidebar');
 var sideBarMenu = document.querySelector('.sideBar__container');
@@ -434,9 +437,12 @@ homeBtn.addEventListener('click', function (e) {
       (0, _animations.productPageHide)(productpageObject);
     }
 
+    changeImageSrc(logoImage, './img/Logo.svg');
+    changeImageSrc(shoppingCartImage, './img/cart.svg');
     (0, _animations.closeMenu)(sideBarAnimationObject);
     removeClass(active);
     addClass(homepage);
+    changeBurgerColor('whiteBurger', 'blackBurger');
   }
 });
 /**
@@ -444,6 +450,7 @@ homeBtn.addEventListener('click', function (e) {
  *  Product page
  *
  */
+// show product page when button on sidebar is toggled
 
 productBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -452,17 +459,32 @@ productBtn.addEventListener('click', function (e) {
   if (active === productpage) {
     (0, _animations.closeMenu)(sideBarAnimationObject);
   } else {
-    (0, _animations.closeMenu)(sideBarAnimationObject);
-    removeClass(active);
-    addClass(productpage);
-    (0, _animations.productPageShow)(productpageObject);
+    productPageFunctions(active);
   }
+}); // show product page when button on homepage shape is toggled
+
+homepageProductBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  var active = checkIfActive(pages);
+  productPageFunctions(active);
+}); // show product page when product image is toggled
+
+homepageShapeTwo.addEventListener('click', function (e) {
+  e.preventDefault();
+  var active = checkIfActive(pages);
+  productPageFunctions(active);
 });
-/**
- *
- * Function that checks in list of elements if one of them have a class active and if thes is one it returs it
- *
- */
+
+var productPageFunctions = function productPageFunctions(active) {
+  changeImageSrc(logoImage, './img/logo-black.svg');
+  changeImageSrc(shoppingCartImage, './img/shopping-cart-black.svg');
+  (0, _animations.closeMenu)(sideBarAnimationObject);
+  removeClass(active);
+  addClass(productpage);
+  (0, _animations.productPageShow)(productpageObject);
+  changeBurgerColor('blackBurger', 'whiteBurger');
+}; // Function that checks in list of elements if one of them have a class active and if thes is one it returs it
+
 
 var checkIfActive = function checkIfActive(pages) {
   var temp;
@@ -472,12 +494,14 @@ var checkIfActive = function checkIfActive(pages) {
     }
   });
   return temp;
-};
+}; // removing classes from current active element
+
 
 var removeClass = function removeClass(element) {
   element.classList.remove('active', 'zindexPlus');
   element.classList.add('zindexMinus');
-};
+}; // adding classes to an element that is being toggled from sidebar menu or from homepage buttons
+
 
 var addClass = function addClass(element) {
   element.classList.add('active', 'zindexPlus');
@@ -485,6 +509,15 @@ var addClass = function addClass(element) {
   if (element.classList.contains('zindexMinus')) {
     element.classList.remove('zindexMinus');
   }
+};
+
+var changeImageSrc = function changeImageSrc(img, src) {
+  img.src = src;
+};
+
+var changeBurgerColor = function changeBurgerColor(addColor, removeColor) {
+  openNavBtn.classList.remove(removeColor);
+  openNavBtn.classList.add(addColor);
 };
 },{"./animations":"animations.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -514,7 +547,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56423" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53396" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

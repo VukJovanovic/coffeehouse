@@ -61,7 +61,6 @@ header {
         width: 30px;
         height: 3px;
         margin-bottom: 5px;
-        background-color: $color-light;
 
         @media only screen and (max-width: 1024px) {
           width: 35px;
@@ -70,6 +69,16 @@ header {
         &:last-of-type {
           margin-bottom: 0;
         }
+      }
+    }
+    .whiteBurger {
+      span {
+        background-color: $color-light;
+      }
+    }
+    .blackBurger {
+      span {
+        background-color: $color-black;
       }
     }
   }

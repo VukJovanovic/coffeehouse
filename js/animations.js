@@ -63,7 +63,7 @@ const productPageShow = function(elements) {
 };
 
 const productPageHide = function(elements) {
-  TweenMax.to(elements.productpage, 0.4, { width: '0rem' });
+  TweenMax.to(elements.productpage, 1, { width: '0rem' });
 };
 
 export { homepageLoad, showMenu, closeMenu, productPageShow, productPageHide };
