@@ -318,10 +318,108 @@ var productPageHide = function productPageHide(elements) {
 };
 
 exports.productPageHide = productPageHide;
+},{}],"helperFunctions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.changeImageSrc = exports.changeClass = exports.addIndexClass = exports.removeClass = exports.checkIfActive = void 0;
+
+// Function that checks in list of elements if one of them have a class active and if there is one it returs it
+var checkIfActive = function checkIfActive(pages) {
+  var temp;
+  pages.forEach(function (page) {
+    if (page.classList.contains('active')) {
+      temp = page;
+    }
+  });
+  return temp;
+}; // removing classes from current active element
+
+
+exports.checkIfActive = checkIfActive;
+
+var removeClass = function removeClass(element) {
+  element.classList.remove('active', 'zindexPlus');
+  element.classList.add('zindexMinus');
+}; // adding classes to an element that is being toggled from sidebar menu or from homepage buttons
+
+
+exports.removeClass = removeClass;
+
+var addIndexClass = function addIndexClass(element) {
+  element.classList.add('active', 'zindexPlus');
+
+  if (element.classList.contains('zindexMinus')) {
+    element.classList.remove('zindexMinus');
+  }
+}; // Function for adding class to an element and removing other class
+
+
+exports.addIndexClass = addIndexClass;
+
+var changeClass = function changeClass(object) {
+  object.element.classList.remove(object.removeClass);
+  object.element.classList.add(object.addClass);
+}; // Changing image src, we provide array of images and array of sources. They need to bee in order.
+
+
+exports.changeClass = changeClass;
+
+var changeImageSrc = function changeImageSrc(imgs, src) {
+  for (var i = 0; i < imgs.length; i++) {
+    imgs[i].src = src[i];
+  }
+};
+
+exports.changeImageSrc = changeImageSrc;
+},{}],"pageFunctions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.pageFunction = void 0;
+
+var _helperFunctions = require("./helperFunctions");
+
+var pageFunction = function pageFunction(activePage, toggledEl, imageObj, changeClassObj) {
+  (0, _helperFunctions.removeClass)(activePage);
+  (0, _helperFunctions.addIndexClass)(toggledEl);
+  (0, _helperFunctions.changeImageSrc)(imageObj);
+  (0, _helperFunctions.changeClass)(changeClassObj);
+};
+
+exports.pageFunction = pageFunction;
+},{"./helperFunctions":"helperFunctions.js"}],"checkActiveFunction.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkIfActive = void 0;
+
+// Function that checks in list of elements if one of them have a class active and if thes is one it returs it
+var checkIfActive = function checkIfActive(pages) {
+  var temp;
+  pages.forEach(function (page) {
+    if (page.classList.contains('active')) {
+      temp = page;
+    }
+  });
+  return temp;
+};
+
+exports.checkIfActive = checkIfActive;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _animations = require("./animations");
+
+var _pageFunctions = require("./pageFunctions");
+
+var _checkActiveFunction = require("./checkActiveFunction");
 
 /*
  * DOM elements
@@ -399,38 +497,30 @@ var sideBarAnimationObject = {
 };
 /**
  *
- * Loader
+ * Sidebar functions
  *
  */
-
-/*
- * Show sidebar menu
- */
+// Show sidebar menu
 
 openNavBtn.addEventListener('click', function (e) {
   e.preventDefault();
   (0, _animations.showMenu)(sideBarAnimationObject);
-});
-/*
- * Hide sidebar menu
- */
+}); // Hide sidebar menu
 
 closeNavBtn.addEventListener('click', function (e) {
   e.preventDefault();
   (0, _animations.closeMenu)(sideBarAnimationObject);
 });
 /*
-
-    * Sidebar navigation functionality 
-
-*/
+ * Sidebar navigation functionality
+ */
 
 var pages = [homepage, productpage];
 homeBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  var active = checkIfActive(pages); // If homepage is allready active we just close the sidebar menu
+  var active = (0, _checkActiveFunction.checkIfActive)(pages); // If homepage is allready active we just close the sidebar menu
 
-  if (checkIfActive(pages) === homepage) {
+  if ((0, _checkActiveFunction.checkIfActive)(pages) === homepage) {
     (0, _animations.closeMenu)(sideBarAnimationObject);
   } else {
     if (active === productpage) {
@@ -454,7 +544,7 @@ homeBtn.addEventListener('click', function (e) {
 
 productBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  var active = checkIfActive(pages);
+  var active = (0, _checkActiveFunction.checkIfActive)(pages);
 
   if (active === productpage) {
     (0, _animations.closeMenu)(sideBarAnimationObject);
@@ -465,61 +555,31 @@ productBtn.addEventListener('click', function (e) {
 
 homepageProductBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  var active = checkIfActive(pages);
+  var active = (0, _checkActiveFunction.checkIfActive)(pages);
   productPageFunctions(active);
 }); // show product page when product image is toggled
 
 homepageShapeTwo.addEventListener('click', function (e) {
   e.preventDefault();
-  var active = checkIfActive(pages);
+  var active = (0, _checkActiveFunction.checkIfActive)(pages);
   productPageFunctions(active);
-});
+}); // function that is in charge of showing product page
 
 var productPageFunctions = function productPageFunctions(active) {
-  changeImageSrc(logoImage, './img/logo-black.svg');
-  changeImageSrc(shoppingCartImage, './img/shopping-cart-black.svg');
+  var imageObject = {
+    imgs: [logoImage, shoppingCartImage],
+    srcs: ['./img/logo-black.svg', './img/shopping-cart-black.svg']
+  };
+  var changeClassObject = {
+    element: openNavBtn,
+    addClass: 'blackBurger',
+    removeClass: 'whiteBurger'
+  };
+  (0, _pageFunctions.pageFunction)(active, productpage, imageObject, changeClassObject);
   (0, _animations.closeMenu)(sideBarAnimationObject);
-  removeClass(active);
-  addClass(productpage);
   (0, _animations.productPageShow)(productpageObject);
-  changeBurgerColor('blackBurger', 'whiteBurger');
-}; // Function that checks in list of elements if one of them have a class active and if thes is one it returs it
-
-
-var checkIfActive = function checkIfActive(pages) {
-  var temp;
-  pages.forEach(function (page) {
-    if (page.classList.contains('active')) {
-      temp = page;
-    }
-  });
-  return temp;
-}; // removing classes from current active element
-
-
-var removeClass = function removeClass(element) {
-  element.classList.remove('active', 'zindexPlus');
-  element.classList.add('zindexMinus');
-}; // adding classes to an element that is being toggled from sidebar menu or from homepage buttons
-
-
-var addClass = function addClass(element) {
-  element.classList.add('active', 'zindexPlus');
-
-  if (element.classList.contains('zindexMinus')) {
-    element.classList.remove('zindexMinus');
-  }
 };
-
-var changeImageSrc = function changeImageSrc(img, src) {
-  img.src = src;
-};
-
-var changeBurgerColor = function changeBurgerColor(addColor, removeColor) {
-  openNavBtn.classList.remove(removeColor);
-  openNavBtn.classList.add(addColor);
-};
-},{"./animations":"animations.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./animations":"animations.js","./pageFunctions":"pageFunctions.js","./checkActiveFunction":"checkActiveFunction.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

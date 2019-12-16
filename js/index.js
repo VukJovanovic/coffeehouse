@@ -6,6 +6,9 @@ import {
   productPageHide
 } from './animations';
 
+import { pageFunction } from './pageFunctions';
+import { checkIfActive } from './checkActiveFunction';
+
 /*
  * DOM elements
  */
@@ -89,31 +92,25 @@ const sideBarAnimationObject = {
 
 /**
  *
- * Loader
+ * Sidebar functions
  *
  */
 
-/*
- * Show sidebar menu
- */
+// Show sidebar menu
 openNavBtn.addEventListener('click', function(e) {
   e.preventDefault();
   showMenu(sideBarAnimationObject);
 });
 
-/*
- * Hide sidebar menu
- */
+// Hide sidebar menu
 closeNavBtn.addEventListener('click', function(e) {
   e.preventDefault();
   closeMenu(sideBarAnimationObject);
 });
 
 /*
-
-    * Sidebar navigation functionality 
-
-*/
+ * Sidebar navigation functionality
+ */
 
 const pages = [homepage, productpage];
 
@@ -166,46 +163,18 @@ homepageShapeTwo.addEventListener('click', function(e) {
   productPageFunctions(active);
 });
 
+// function that is in charge of showing product page
 const productPageFunctions = function(active) {
-  changeImageSrc(logoImage, './img/logo-black.svg');
-  changeImageSrc(shoppingCartImage, './img/shopping-cart-black.svg');
+  const imageObject = {
+    imgs: [logoImage, shoppingCartImage],
+    srcs: ['./img/logo-black.svg', './img/shopping-cart-black.svg']
+  };
+  const changeClassObject = {
+    element: openNavBtn,
+    addClass: 'blackBurger',
+    removeClass: 'whiteBurger'
+  };
+  pageFunction(active, productpage, imageObject, changeClassObject);
   closeMenu(sideBarAnimationObject);
-  removeClass(active);
-  addClass(productpage);
   productPageShow(productpageObject);
-  changeBurgerColor('blackBurger', 'whiteBurger');
-};
-
-// Function that checks in list of elements if one of them have a class active and if thes is one it returs it
-const checkIfActive = function(pages) {
-  let temp;
-  pages.forEach(page => {
-    if (page.classList.contains('active')) {
-      temp = page;
-    }
-  });
-  return temp;
-};
-
-// removing classes from current active element
-const removeClass = function(element) {
-  element.classList.remove('active', 'zindexPlus');
-  element.classList.add('zindexMinus');
-};
-
-// adding classes to an element that is being toggled from sidebar menu or from homepage buttons
-const addClass = function(element) {
-  element.classList.add('active', 'zindexPlus');
-  if (element.classList.contains('zindexMinus')) {
-    element.classList.remove('zindexMinus');
-  }
-};
-
-const changeImageSrc = function(img, src) {
-  img.src = src;
-};
-
-const changeBurgerColor = function(addColor, removeColor) {
-  openNavBtn.classList.remove(removeColor);
-  openNavBtn.classList.add(addColor);
 };
