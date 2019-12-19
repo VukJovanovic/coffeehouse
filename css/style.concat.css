@@ -141,14 +141,17 @@ header {
         display: block;
         width: 30px;
         height: 3px;
-        margin-bottom: 5px;
-        background-color: #eee; }
+        margin-bottom: 5px; }
         @media only screen and (max-width: 1024px) {
           header .navigation .burgerNav span {
             width: 35px;
             margin-bottom: 6px; } }
         header .navigation .burgerNav span:last-of-type {
           margin-bottom: 0; }
+    header .navigation .whiteBurger span {
+      background-color: #eee; }
+    header .navigation .blackBurger span {
+      background-color: #30271c; }
 
 .sideBar__container {
   position: absolute;
@@ -164,6 +167,7 @@ header {
   overflow: hidden;
   flex-direction: column;
   padding: 8rem 0rem 2rem 0rem;
+  border-left: 1px solid #30271c;
   /* 
     Close sidebar button
   */
@@ -419,11 +423,11 @@ header {
           width: 100vw;
           clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%); } }
 
-.productContainer {
+.contentContainer {
   position: absolute;
   top: 0;
   right: 0;
   min-height: 100vh;
   padding-bottom: 1000px;
-  background-color: #eee;
+  background-color: #f1e5c0;
   overflow-y: scroll; }

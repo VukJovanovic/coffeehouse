@@ -58,12 +58,18 @@ const closeMenu = function(elements) {
   TweenMax.to(elements.openNavBtn, 0.4, { opacity: 1, delay: 1.1 });
 };
 
-const productPageShow = function(elements) {
-  TweenMax.to(elements.productpage, 0.4, { width: '100vw' });
+const contentContainerShow = function(elements) {
+  TweenMax.to(elements.contentContainer, 0.4, { width: '100vw' });
 };
 
-const productPageHide = function(elements) {
-  TweenMax.to(elements.productpage, 1, { width: '0rem' });
+const contentContainerHide = function(elements) {
+  TweenMax.to(elements.contentContainer, 1, { width: '0rem' });
 };
 
-export { homepageLoad, showMenu, closeMenu, productPageShow, productPageHide };
+export {
+  homepageLoad,
+  showMenu,
+  closeMenu,
+  contentContainerShow,
+  contentContainerHide
+};

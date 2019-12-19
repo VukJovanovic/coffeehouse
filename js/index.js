@@ -2,8 +2,8 @@ import {
   homepageLoad,
   showMenu,
   closeMenu,
-  productPageShow,
-  productPageHide
+  contentContainerShow,
+  contentContainerHide
 } from './animations';
 
 import { pageFunction } from './pageFunctions';
@@ -34,11 +34,11 @@ const homepageObject = {
   homepageShapeThree
 };
 
-// product elements
-const productpage = document.getElementById('productpage');
+// content container elements
+const contentContainer = document.getElementById('contentContainer');
 
-const productpageObject = {
-  productpage
+const contentContainerObject = {
+  contentContainer
 };
 /**
  *
@@ -112,27 +112,35 @@ closeNavBtn.addEventListener('click', function(e) {
  * Sidebar navigation functionality
  */
 
-const pages = [homepage, productpage];
+const pages = [homepage, contentContainer];
 
 homeBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
   // If homepage is allready active we just close the sidebar menu
-  if (checkIfActive(pages) === homepage) {
+  if (active === homepage) {
     closeMenu(sideBarAnimationObject);
   } else {
-    if (active === productpage) {
-      productPageHide(productpageObject);
+    if (active === contentContainer) {
+      homepagePageFunction(active);
     }
-    changeImageSrc(logoImage, './img/Logo.svg');
-    changeImageSrc(shoppingCartImage, './img/cart.svg');
-    closeMenu(sideBarAnimationObject);
-    removeClass(active);
-    addClass(homepage);
-    changeBurgerColor('whiteBurger', 'blackBurger');
   }
 });
 
+const homepagePageFunction = function(active) {
+  const imageObject = {
+    imgs: [logoImage, shoppingCartImage],
+    srcs: ['./img/Logo.svg', './img/cart.svg']
+  };
+  const changeClassObject = {
+    element: openNavBtn,
+    addClass: 'whiteBurger',
+    removeClass: 'blackBurger'
+  };
+  pageFunction(active, homepage, imageObject, changeClassObject);
+  closeMenu(sideBarAnimationObject);
+  contentContainerHide(contentContainerObject);
+};
 /**
  *
  *  Product page
@@ -143,7 +151,7 @@ homeBtn.addEventListener('click', function(e) {
 productBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
-  if (active === productpage) {
+  if (active === contentContainer) {
     closeMenu(sideBarAnimationObject);
   } else {
     productPageFunctions(active);
@@ -174,7 +182,7 @@ const productPageFunctions = function(active) {
     addClass: 'blackBurger',
     removeClass: 'whiteBurger'
   };
-  pageFunction(active, productpage, imageObject, changeClassObject);
+  pageFunction(active, contentContainer, imageObject, changeClassObject);
   closeMenu(sideBarAnimationObject);
-  productPageShow(productpageObject);
+  contentContainerShow(contentContainerObject);
 };

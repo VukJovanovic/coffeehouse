@@ -28,9 +28,9 @@ const changeClass = function(object) {
   object.element.classList.add(object.addClass);
 };
 // Changing image src, we provide array of images and array of sources. They need to bee in order.
-const changeImageSrc = function(imgs, src) {
-  for (let i = 0; i < imgs.length; i++) {
-    imgs[i].src = src[i];
+const changeImageSrc = function(images) {
+  for (let i = 0; i < images.imgs.length; i++) {
+    images.imgs[i].src = images.srcs[i];
   }
 };
 
