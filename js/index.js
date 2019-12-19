@@ -1,5 +1,4 @@
 import {
-  homepageLoad,
   showMenu,
   closeMenu,
   contentContainerShow,
@@ -13,82 +12,12 @@ import { checkIfActive } from './checkActiveFunction';
  * DOM elements
  */
 
-const loader = document.querySelector('.loaderContainer');
-
 // homepage elements
-const homepage = document.getElementById('homepage');
+
 const homepageShapeOne = document.querySelector('.homepage__shape-1');
 const homepageShapeTwo = document.querySelector('.homepage__shape-2');
 const homepageShapeThree = document.querySelector('.homepage__shape-3');
 const homepageProductBtn = document.getElementById('homepageProductBtn');
-
-/**
- *
- *  Object that contains homepage elements
- *
- */
-
-const homepageObject = {
-  homepageShapeOne,
-  homepageShapeTwo,
-  homepageShapeThree
-};
-
-// content container elements
-const contentContainer = document.getElementById('contentContainer');
-
-const contentContainerObject = {
-  contentContainer
-};
-/**
- *
- *  Object that contains product page elements
- *
- */
-
-// header elements
-const openNavBtn = document.querySelector('.burgerNav');
-const shoppingCart = document.querySelector('.shoppingCart');
-const shoppingCartImage = document.getElementById('shoppingCartImage');
-const logoImage = document.getElementById('logoImage');
-
-// sidebar elements
-const closeNavBtn = document.querySelector('.closeSidebar');
-const sideBarMenu = document.querySelector('.sideBar__container');
-const homeBtn = document.getElementById('homeBtn');
-const aboutBtn = document.getElementById('aboutBtn');
-const productBtn = document.getElementById('productBtn');
-const shopBtn = document.getElementById('shopBtn');
-const galleryBtn = document.getElementById('galleryBtn');
-const contactBtn = document.getElementById('contactBtn');
-const baristaImg = document.getElementById('baristaImg');
-const filterImg = document.getElementById('filterImg');
-const grinderImg = document.getElementById('grinderImg');
-const tamperImg = document.getElementById('tamperImg');
-const machineImg = document.getElementById('machineImg');
-const copyright = document.querySelector('.sideBar__copyright');
-
-/*
- * Object with dom elements that are associated with menu, we pass the object into functions where we perform actions on those elements
- */
-const sideBarAnimationObject = {
-  sideBarMenu,
-  closeNavBtn,
-  openNavBtn,
-  shoppingCart,
-  homeBtn,
-  aboutBtn,
-  productBtn,
-  shopBtn,
-  galleryBtn,
-  contactBtn,
-  baristaImg,
-  filterImg,
-  grinderImg,
-  tamperImg,
-  machineImg,
-  copyright
-};
 
 /**
  *
@@ -97,15 +26,17 @@ const sideBarAnimationObject = {
  */
 
 // Show sidebar menu
+const openNavBtn = document.querySelector('.burgerNav');
 openNavBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  showMenu(sideBarAnimationObject);
+  showMenu();
 });
 
 // Hide sidebar menu
+const closeNavBtn = document.querySelector('.closeSidebar');
 closeNavBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  closeMenu(sideBarAnimationObject);
+  closeMenu();
 });
 
 /*
@@ -119,7 +50,7 @@ homeBtn.addEventListener('click', function(e) {
   const active = checkIfActive(pages);
   // If homepage is allready active we just close the sidebar menu
   if (active === homepage) {
-    closeMenu(sideBarAnimationObject);
+    closeMenu();
   } else {
     if (active === contentContainer) {
       homepagePageFunction(active);
@@ -138,7 +69,7 @@ const homepagePageFunction = function(active) {
     removeClass: 'blackBurger'
   };
   pageFunction(active, homepage, imageObject, changeClassObject);
-  closeMenu(sideBarAnimationObject);
+  closeMenu();
   contentContainerHide(contentContainerObject);
 };
 /**
@@ -146,13 +77,14 @@ const homepagePageFunction = function(active) {
  *  Product page
  *
  */
+const homepage = document.getElementById('homepage');
 
 // show product page when button on sidebar is toggled
 productBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
   if (active === contentContainer) {
-    closeMenu(sideBarAnimationObject);
+    closeMenu();
   } else {
     productPageFunctions(active);
   }
@@ -183,6 +115,6 @@ const productPageFunctions = function(active) {
     removeClass: 'whiteBurger'
   };
   pageFunction(active, contentContainer, imageObject, changeClassObject);
-  closeMenu(sideBarAnimationObject);
+  closeMenu();
   contentContainerShow(contentContainerObject);
 };
