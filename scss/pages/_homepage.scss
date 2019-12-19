@@ -21,6 +21,12 @@
     overflow: hidden;
     position: relative;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .homepage__shape-overlay {
       position: absolute;
       top: 0;
