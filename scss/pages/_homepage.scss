@@ -102,12 +102,10 @@
       width: 100vw;
       clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
     }
-
-    @media only screen and (max-height: 700px) {
-      padding-top: 100px;
-    }
-
     .homepage__shape-overlay {
+      @media only screen and (max-height: 700px) and (max-width: 500px) {
+        padding-top: 100px;
+      }
       &-button {
         bottom: 20rem;
         left: 10rem;

@@ -8,6 +8,19 @@ import {
 import { pageFunction } from './pageFunctions';
 import { checkIfActive } from './checkActiveFunction';
 
+const homepageImage1 = document.getElementById('homepageImage-1');
+const homepageImage2 = document.getElementById('homepageImage-2');
+const homepageImage3 = document.getElementById('homepageImage-3');
+
+// optimizing images for mobile phones
+window.addEventListener('load', function() {
+  if (screen.width < 500) {
+    homepageImage1.src = './img/homepageimage1-mobile.jpg';
+    homepageImage2.src = './img/homepageimage2-mobile.jpg';
+    homepageImage3.src = './img/homepageimage3-mobile.jpg';
+  }
+});
+
 /*
  * DOM elements
  */

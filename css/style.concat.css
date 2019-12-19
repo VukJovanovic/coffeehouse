@@ -347,8 +347,8 @@ header {
       .homepageContainer .homepage__shape-1 {
         width: 100vw;
         clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); } }
-    @media only screen and (max-height: 700px) {
-      .homepageContainer .homepage__shape-1 {
+    @media only screen and (max-height: 700px) and (max-width: 500px) {
+      .homepageContainer .homepage__shape-1 .homepage__shape-overlay {
         padding-top: 100px; } }
     .homepageContainer .homepage__shape-1 .homepage__shape-overlay-button {
       bottom: 20rem;
