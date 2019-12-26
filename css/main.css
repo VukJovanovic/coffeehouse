@@ -32,15 +32,14 @@ a {
 body {
   font-family: 'Montserrat', sans-serif; }
 
-::-webkit-scrollbar {
-  width: 10px; }
-
-::-webkit-scrollbar-track {
-  background: #f1e5c0; }
-
-::-webkit-scrollbar-thumb {
-  background: #30271c;
-  border-radius: 5px; }
+@media only screen and (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 10px; }
+  ::-webkit-scrollbar-track {
+    background: #f1e5c0; }
+  ::-webkit-scrollbar-thumb {
+    background: #30271c;
+    border-radius: 5px; } }
 
 .zindexPlus {
   z-index: 5; }
