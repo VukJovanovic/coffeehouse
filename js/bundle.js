@@ -2044,9 +2044,8 @@ var contentContainerShow = function contentContainerShow() {
       document.querySelector('.header').classList.remove('headerScroll');
     }
   }, 300); // When we scroll we want to do some animations with the header
+  // contentContainer.addEventListener('scroll', checkHeader);
 
-
-  contentContainer.addEventListener('scroll', checkHeader);
 };
 
 exports.contentContainerShow = contentContainerShow;
@@ -2388,7 +2387,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54081" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

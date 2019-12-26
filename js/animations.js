@@ -113,7 +113,7 @@ const contentContainerShow = function() {
     }
   }, 300);
   // When we scroll we want to do some animations with the header
-  contentContainer.addEventListener('scroll', checkHeader);
+  // contentContainer.addEventListener('scroll', checkHeader);
 };
 
 const contentContainerHide = function() {
