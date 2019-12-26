@@ -2044,8 +2044,9 @@ var contentContainerShow = function contentContainerShow() {
       document.querySelector('.header').classList.remove('headerScroll');
     }
   }, 300); // When we scroll we want to do some animations with the header
-  // contentContainer.addEventListener('scroll', checkHeader);
 
+
+  contentContainer.addEventListener('scroll', checkHeader);
 };
 
 exports.contentContainerShow = contentContainerShow;

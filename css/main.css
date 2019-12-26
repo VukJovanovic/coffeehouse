@@ -401,7 +401,8 @@ header {
   height: 100%;
   width: 0;
   background-color: #f1e5c0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch; }
 
 .productContainer .coffeeProducts,
 .productContainer .teaProducts {
