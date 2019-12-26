@@ -5,14 +5,16 @@ import {
   contentContainerHide
 } from './animations';
 
-import { pageFunction } from './pageFunctions';
+import { homePageFunction, contentContainerFunction } from './pageFunctions';
 import { checkIfActive } from './checkActiveFunction';
+import { displayProducts } from './uiFunctions';
+// import { checkHeader } from './scrollAnimation';
 
 const homepageImage1 = document.getElementById('homepageImage-1');
 const homepageImage2 = document.getElementById('homepageImage-2');
 const homepageImage3 = document.getElementById('homepageImage-3');
 
-// optimizing images for mobile phones
+// displaying different images for mobile phones
 window.addEventListener('load', function() {
   if (screen.width < 500) {
     homepageImage1.src = './img/homepageimage1-mobile.jpg';
@@ -55,7 +57,8 @@ closeNavBtn.addEventListener('click', function(e) {
 /*
  * Sidebar navigation functionality
  */
-
+const homepage = document.getElementById('homepage');
+const contentContainer = document.getElementById('contentContainer');
 const pages = [homepage, contentContainer];
 
 homeBtn.addEventListener('click', function(e) {
@@ -66,31 +69,18 @@ homeBtn.addEventListener('click', function(e) {
     closeMenu();
   } else {
     if (active === contentContainer) {
-      homepagePageFunction(active);
+      homePageFunction(active);
+      closeMenu();
+      contentContainerHide();
     }
   }
 });
 
-const homepagePageFunction = function(active) {
-  const imageObject = {
-    imgs: [logoImage, shoppingCartImage],
-    srcs: ['./img/Logo.svg', './img/cart.svg']
-  };
-  const changeClassObject = {
-    element: openNavBtn,
-    addClass: 'whiteBurger',
-    removeClass: 'blackBurger'
-  };
-  pageFunction(active, homepage, imageObject, changeClassObject);
-  closeMenu();
-  contentContainerHide(contentContainerObject);
-};
 /**
  *
  *  Product page
  *
  */
-const homepage = document.getElementById('homepage');
 
 // show product page when button on sidebar is toggled
 productBtn.addEventListener('click', function(e) {
@@ -99,7 +89,10 @@ productBtn.addEventListener('click', function(e) {
   if (active === contentContainer) {
     closeMenu();
   } else {
-    productPageFunctions(active);
+    contentContainerFunction(active);
+    closeMenu();
+    contentContainerShow();
+    displayProducts(contentContainer);
   }
 });
 
@@ -107,27 +100,15 @@ productBtn.addEventListener('click', function(e) {
 homepageProductBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
-  productPageFunctions(active);
+  contentContainerFunction(active);
+  contentContainerShow();
+  displayProducts(contentContainer);
 });
 // show product page when product image is toggled
 homepageShapeTwo.addEventListener('click', function(e) {
   e.preventDefault();
   const active = checkIfActive(pages);
-  productPageFunctions(active);
+  contentContainerFunction(active);
+  contentContainerShow();
+  displayProducts(contentContainer);
 });
-
-// function that is in charge of showing product page
-const productPageFunctions = function(active) {
-  const imageObject = {
-    imgs: [logoImage, shoppingCartImage],
-    srcs: ['./img/logo-black.svg', './img/shopping-cart-black.svg']
-  };
-  const changeClassObject = {
-    element: openNavBtn,
-    addClass: 'blackBurger',
-    removeClass: 'whiteBurger'
-  };
-  pageFunction(active, contentContainer, imageObject, changeClassObject);
-  closeMenu();
-  contentContainerShow(contentContainerObject);
-};

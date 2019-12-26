@@ -6,6 +6,7 @@
   "scripts": {
     "watch:js": "parcel watch ./js/index.js --out-dir ./js --out-file bundle.js",
     "build:js": "parcel build ./js/index.js --out-dir ./js --out-file bundle.js",
+    "watch:slide": "parcel watch ./js/sliders.js --out-dir ./js --out-file slide.js",
     "watch:sass": "node-sass scss/main.scss css/main.css -w",
     "devServer": "live-server",
     "start": "npm-run-all --parallel devServer watch:sass",
@@ -27,6 +28,8 @@
     "sass": "^1.23.7"
   },
   "dependencies": {
-    "postcss-modules": "^1.4.1"
+    "@glidejs/glide": "^3.4.1",
+    "postcss-modules": "^1.4.1",
+    "underscore": "^1.9.1"
   }
 }

@@ -1,0 +1,18 @@
+@mixin pageHeading {
+  font-weight: 300;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 8rem;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 1px;
+    background-color: $color-black;
+  }
+}

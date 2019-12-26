@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500&display=swap');
 html {
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@ body {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .homepageContainer {
@@ -50,7 +50,7 @@ body {
 .homepageContainer .homepage__image-1 {
   height: 100%;
   -webkit-transform: skew(30deg);
-          transform: skew(30deg);
+  transform: skew(30deg);
   margin-left: -1000px;
   width: calc(30vw + 1000px);
 }
@@ -59,7 +59,7 @@ body {
   width: 40vw;
   background-color: black;
   -webkit-transform: skew(30deg);
-          transform: skew(30deg);
+  transform: skew(30deg);
 }
 
 /*# sourceMappingURL=/bundle.css.map */

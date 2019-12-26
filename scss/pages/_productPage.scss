@@ -1,0 +1,114 @@
+.productContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .productHeading {
+    margin-bottom: 6rem;
+    border-left: 1px solid $color-black;
+    padding-left: 2rem;
+    opacity: 0;
+    h2 {
+      font-size: 4rem;
+      font-weight: 300;
+      color: $color-black;
+      margin-bottom: 1rem;
+    }
+    .productSubheading {
+      font-size: 2rem;
+      color: $color-black;
+      font-weight: 300;
+    }
+  }
+
+  .coffeeProducts,
+  .teaProducts {
+    margin-bottom: 8rem;
+  }
+
+  .showMore__button {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: $color-black;
+    color: $primary-color;
+    align-self: center;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 10px 15px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s;
+    margin-bottom: 8rem;
+    opacity: 0;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  // Styles for product cards
+  .productCard {
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+    box-shadow: 5px 8px 10px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s;
+    cursor: pointer;
+    position: relative;
+    opacity: 0;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &:nth-child(4) {
+      @media only screen and (max-width: 1420px) {
+        display: none;
+      }
+      @media only screen and (max-width: 720px) {
+        display: block;
+      }
+    }
+    &:nth-child(3) {
+      @media only screen and (max-width: 1040px) {
+        display: none;
+      }
+      @media only screen and (max-width: 720px) {
+        display: block;
+      }
+    }
+
+    &__title {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    }
+    &__button {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      display: flex;
+      transition: transform 0.4s;
+      img {
+        align-self: center;
+        margin-left: 0.5rem;
+        width: 1.5rem;
+      }
+
+      &:hover {
+        transform: translateX(-5px);
+      }
+    }
+    &__title,
+    &__button {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+}

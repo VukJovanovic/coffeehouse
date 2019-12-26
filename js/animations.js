@@ -1,3 +1,4 @@
+import _ from 'underscore';
 /**
  *
  *    DOM elements
@@ -74,12 +75,75 @@ const closeMenu = function() {
   TweenMax.to(openNavBtn, 0.4, { opacity: 1, delay: 1.1 });
 };
 
-const contentContainerShow = function(elements) {
-  TweenMax.to(elements.contentContainer, 0.4, { width: '100vw' });
+/**
+ *
+ *
+ * Content container
+ *
+ */
+const contentContainer = document.getElementById('contentContainer');
+const contentContainerShow = function() {
+  if (screen.width > 1280) {
+    TweenMax.to(contentContainer, 0.4, {
+      width: '100vw',
+      padding: '20rem 10rem'
+    });
+  } else if (screen.width < 1280) {
+    TweenMax.to(contentContainer, 0.4, {
+      width: '100vw',
+      padding: '20rem 7rem'
+    });
+  } else if (screen.width < 1024) {
+    TweenMax.to(contentContainer, 0.4, {
+      width: '100vw',
+      padding: '20rem 5rem'
+    });
+  }
+
+  // When we scroll on content container we want the header to have other style
+  const checkHeader = _.throttle(() => {
+    // Detect scroll position
+    let scrollPosition = Math.round(contentContainer.scrollTop);
+
+    // If we scrolled we add class to our navigation bar
+    if (scrollPosition > 10) {
+      document.querySelector('.header').classList.add('headerScroll');
+    } else {
+      document.querySelector('.header').classList.remove('headerScroll');
+    }
+  }, 300);
+  // When we scroll we want to do some animations with the header
+  contentContainer.addEventListener('scroll', checkHeader);
 };
 
-const contentContainerHide = function(elements) {
-  TweenMax.to(elements.contentContainer, 1, { width: '0rem' });
+const contentContainerHide = function() {
+  contentContainer.innerHTML = '';
+  TweenMax.to(contentContainer, 1, { width: '0rem', padding: '0rem' });
 };
 
-export { showMenu, closeMenu, contentContainerShow, contentContainerHide };
+/**
+ *
+ * Product page elements
+ *
+ * */
+
+const showProducts = function() {
+  const productPageHeading = document.querySelector('.productHeading');
+  const productCard = document.querySelectorAll('.productCard');
+  const productBtn = document.querySelectorAll('.showMore__button');
+  TweenMax.to(productPageHeading, 0.3, { opacity: 1, delay: 0.8 });
+  let delay = 0.9;
+  for (let i = 0; i < productCard.length; i++) {
+    TweenMax.to(productCard[i], 0.3, { opacity: 1, delay: delay });
+    delay = delay + 0.1;
+  }
+  TweenMax.to(productBtn, 0.3, { opacity: 1, delay: 1 });
+};
+
+export {
+  showMenu,
+  closeMenu,
+  contentContainerShow,
+  contentContainerHide,
+  showProducts
+};

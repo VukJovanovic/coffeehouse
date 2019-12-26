@@ -1,8 +1,11 @@
 @import './base/reset';
 @import './base/variables';
 @import './base/typography';
-@import './components/loader';
+@import './utils/mixins';
+@import './components/scrollBar';
 @import './components/header';
 @import './components/sideBar';
 @import './pages/homepage';
 @import './pages/contentContainer';
+@import './grid/productContainerGrid';
+@import './pages/productPage';
