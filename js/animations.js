@@ -1,4 +1,6 @@
 import _ from 'underscore';
+import { hideProducts } from './uiFunctions';
+import { numberOfProducts, addClassTo } from './helperFunctions';
 /**
  *
  *    DOM elements
@@ -128,16 +130,39 @@ const contentContainerHide = function() {
  * */
 
 const showProducts = function() {
-  const productPageHeading = document.querySelector('.productHeading');
+  const productPageHeading = document.querySelectorAll('.productHeading');
   const productCard = document.querySelectorAll('.productCard');
+  const coffeeProducts = document.querySelectorAll('.coffeeProductCard');
+  const teaProducts = document.querySelectorAll('.teaProductCard');
   const productBtn = document.querySelectorAll('.showMore__button');
+
+  // show product heading
   TweenMax.to(productPageHeading, 0.3, { opacity: 1, delay: 0.8 });
+
+  // show product cards
   let delay = 0.9;
   for (let i = 0; i < productCard.length; i++) {
-    TweenMax.to(productCard[i], 0.3, { opacity: 1, delay: delay });
+    TweenMax.to(productCard[i], 0.6, {
+      opacity: 1,
+      delay: delay
+    });
     delay = delay + 0.1;
   }
-  TweenMax.to(productBtn, 0.3, { opacity: 1, delay: 1 });
+
+  // showing show more buttons
+  TweenMax.to(productBtn, 0.5, { opacity: 1, delay: 1 });
+
+  // Get number of products that should recive visible class based on screen size
+  let productsLength = numberOfProducts();
+
+  // adding classes to product cards that are visible when we load the product page
+  addClassTo(coffeeProducts, 0, productsLength, 'visibleCoffee');
+  addClassTo(teaProducts, 0, productsLength, 'visibleTea');
+
+  // hide rest of the product cards based on screen width,
+  // which we later show when we click on show more btn
+  hideProducts(coffeeProducts);
+  hideProducts(teaProducts);
 };
 
 export {

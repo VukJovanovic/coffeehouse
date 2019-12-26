@@ -7,7 +7,7 @@ import {
 
 import { homePageFunction, contentContainerFunction } from './pageFunctions';
 import { checkIfActive } from './checkActiveFunction';
-import { displayProducts } from './uiFunctions';
+import { displayProducts, showMoreProducts } from './uiFunctions';
 // import { checkHeader } from './scrollAnimation';
 
 const homepageImage1 = document.getElementById('homepageImage-1');
@@ -111,4 +111,22 @@ homepageShapeTwo.addEventListener('click', function(e) {
   contentContainerFunction(active);
   contentContainerShow();
   displayProducts(contentContainer);
+});
+
+// show more coffee products
+contentContainer.addEventListener('click', function(e) {
+  // if user clicke on show more button for coffe we show him more coffee products
+  if (e.target.id === 'coffeeShowMore__button') {
+    e.preventDefault();
+    const coffeeProducts = document.querySelectorAll('.coffeeProductCard');
+    const coffeeProductList = Array.from(coffeeProducts);
+    const coffeeVisibleProducts = document.querySelectorAll('.visibleCoffee');
+    const coffeeVisibleProductsList = Array.from(coffeeVisibleProducts);
+    showMoreProducts(
+      coffeeProductList,
+      e.target,
+      coffeeVisibleProductsList,
+      'visibleCoffee'
+    );
+  }
 });

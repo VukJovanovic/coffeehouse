@@ -24,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
-  box-sizing: inherit; }
+  box-sizing: border-box; }
 
 a {
   text-decoration: none; }
@@ -32,63 +32,14 @@ a {
 body {
   font-family: 'Montserrat', sans-serif; }
 
-.loaderContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  background-color: #30271c; }
-  .loaderContainer .coffee_cup {
-    width: 20px;
-    height: 24px;
-    border: 1px white solid;
-    border-radius: 0px 0px 5px 5px;
-    position: relative; }
-  .loaderContainer .coffee_cup:after,
-  .loaderContainer .coffee_cup:before {
-    position: absolute;
-    content: ''; }
-  .loaderContainer .coffee_cup:after {
-    width: 5px;
-    height: 12px;
-    border: 1px #fff solid;
-    border-left: none;
-    border-radius: 0px 20px 20px 0px;
-    left: 20px; }
-  .loaderContainer .coffee_cup:before {
-    width: 1px;
-    height: 6px;
-    background-color: white;
-    top: -10px;
-    left: 4px;
-    box-shadow: 5px 0px 0px 0px white, 5px -5px 0px 0px white, 10px 0px 0px 0px white;
-    -webkit-animation: steam 1s linear infinite alternate;
-    -moz-animation: steam 1s linear infinite alternate;
-    animation: steam 1s linear infinite alternate; }
-
-@-webkit-keyframes steam {
-  0% {
-    height: 0px; }
-  100% {
-    height: 6px; } }
-
-@-moz-keyframes steam {
-  0% {
-    height: 0px; }
-  100% {
-    height: 6px; } }
-
-@keyframes steam {
-  0% {
-    height: 0px; }
-  100% {
-    height: 6px; } }
+@media only screen and (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 10px; }
+  ::-webkit-scrollbar-track {
+    background: #f1e5c0; }
+  ::-webkit-scrollbar-thumb {
+    background: #30271c;
+    border-radius: 5px; } }
 
 .zindexPlus {
   z-index: 5; }
@@ -103,7 +54,8 @@ header {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  padding: 4rem 10rem; }
+  padding: 4rem 10rem;
+  transition: all 0.4; }
   @media only screen and (max-width: 1280px) {
     header {
       padding: 4rem 7rem; } }
@@ -113,15 +65,18 @@ header {
   header .logoContainer {
     width: 10rem;
     height: 10rem;
-    z-index: 20; }
+    z-index: 20;
+    transition: all 0.4s; }
     header .logoContainer img {
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      transition: all 0.4s; }
   header .navigation {
     height: 10rem;
     display: flex;
     align-items: center;
     z-index: 20;
+    transition: all 0.4s;
     /* 
         * Shopping cart
     */
@@ -152,6 +107,22 @@ header {
       background-color: #eee; }
     header .navigation .blackBurger span {
       background-color: #30271c; }
+
+.headerScroll {
+  padding-top: 1rem;
+  padding-bottom: 0;
+  z-index: 19;
+  background-color: rgba(241, 229, 192, 0.8);
+  border-bottom: 1px solid #30271c; }
+  .headerScroll .logoContainer {
+    width: 7rem;
+    height: 7rem;
+    z-index: 20; }
+    .headerScroll .logoContainer img {
+      width: 100%;
+      height: 100%; }
+  .headerScroll .navigation {
+    height: 8rem; }
 
 .sideBar__container {
   position: absolute;
@@ -234,7 +205,6 @@ header {
   width: 100vw;
   height: 100vh;
   display: flex;
-  overflow: hidden;
   position: relative;
   z-index: 2;
   /* 
@@ -423,10 +393,109 @@ header {
           clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%); } }
 
 .contentContainer {
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: absolute;
   top: 0;
   right: 0;
-  min-height: 100vh;
-  padding-bottom: 1000px;
+  height: 100%;
+  width: 0;
   background-color: #f1e5c0;
-  overflow-y: scroll; }
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch; }
+
+.productContainer .coffeeProducts,
+.productContainer .teaProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-gap: 7rem;
+  justify-content: center; }
+
+.productContainer {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  z-index: 22; }
+  .productContainer .productHeading {
+    margin-bottom: 6rem;
+    border-left: 1px solid #30271c;
+    padding-left: 2rem;
+    opacity: 0;
+    z-index: 22; }
+    .productContainer .productHeading h2 {
+      font-size: 4rem;
+      font-weight: 300;
+      color: #30271c;
+      margin-bottom: 1rem; }
+    .productContainer .productHeading .productSubheading {
+      font-size: 2rem;
+      color: #30271c;
+      font-weight: 300; }
+  .productContainer .coffeeProducts,
+  .productContainer .teaProducts {
+    z-index: 22;
+    margin-bottom: 8rem; }
+  .productContainer .showMore__button {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #30271c;
+    color: #f1e5c0;
+    align-self: center;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 10px 15px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s;
+    margin-bottom: 8rem;
+    opacity: 0;
+    z-index: 22; }
+    .productContainer .showMore__button:hover {
+      transform: translateY(-5px); }
+  .productContainer .productCard {
+    z-index: 22;
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+    box-shadow: 5px 8px 10px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s;
+    cursor: pointer;
+    position: relative;
+    opacity: 0; }
+    .productContainer .productCard:hover {
+      transform: translateY(-5px); }
+    @media only screen and (max-width: 1420px) {
+      .productContainer .productCard:nth-child(4) {
+        display: none; } }
+    @media only screen and (max-width: 1040px) {
+      .productContainer .productCard:nth-child(3) {
+        display: none; } }
+    @media only screen and (max-width: 720px) {
+      .productContainer .productCard:nth-child(3) {
+        display: block; } }
+    .productContainer .productCard__title {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      text-orientation: upright; }
+    .productContainer .productCard__button {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      display: flex;
+      transition: transform 0.4s; }
+      .productContainer .productCard__button img {
+        align-self: center;
+        margin-left: 0.5rem;
+        width: 1.5rem; }
+      .productContainer .productCard__button:hover {
+        transform: translateX(-5px); }
+    .productContainer .productCard__title, .productContainer .productCard__button {
+      font-size: 1.5rem;
+      font-weight: 300; }
