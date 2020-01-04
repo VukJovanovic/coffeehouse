@@ -2,7 +2,11 @@ import {
   showMenu,
   closeMenu,
   contentContainerShow,
-  contentContainerHide
+  contentContainerHide,
+  productModalShow,
+  productModalHide,
+  showHeader,
+  hideHeader
 } from './animations';
 
 import { homePageFunction, contentContainerFunction } from './pageFunctions';
@@ -128,5 +132,23 @@ contentContainer.addEventListener('click', function(e) {
       coffeeVisibleProductsList,
       'visibleCoffee'
     );
+  }
+  // If we user clicks on a product card or product card button we show him te popup modal
+  if (
+    e.target.classList.contains('productCard') ||
+    e.target.parentNode.classList.contains('productCard__button')
+  ) {
+    hideHeader();
+    productModalShow();
+  }
+
+  // if user clicks on modal close button
+  if (
+    e.target.id === 'productModalClose' ||
+    e.target.parentNode.id === 'productModalClose'
+  ) {
+    e.preventDefault();
+    productModalHide();
+    showHeader();
   }
 });

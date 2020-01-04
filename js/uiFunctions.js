@@ -13,6 +13,13 @@ import {
 const displayProducts = function(parentEl) {
   parentEl.innerHTML = '';
   const markup = `
+                  <div class="productModal">
+                  <div class="productModalContent">
+                    <a id="productModalClose" href="#" class="productModalClose"
+                      ><img src="./img/close.svg" alt=""
+                    /></a>
+                  </div>
+                </div>
                 <div class="productContainer">
                     <div class="productHeading">
                         <h2>Kafa</h2>

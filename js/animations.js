@@ -7,10 +7,30 @@ import { numberOfProducts, addClassTo } from './helperFunctions';
  *
  */
 // Header elements
+const header = document.querySelector('.header');
 const openNavBtn = document.querySelector('.burgerNav');
 const shoppingCart = document.querySelector('.shoppingCart');
 const shoppingCartImage = document.getElementById('shoppingCartImage');
 const logoImage = document.getElementById('logoImage');
+
+// header animations
+// hide header
+const hideHeader = function() {
+  TweenMax.to(header, 0.4, {
+    opacity: 0,
+    display: 'none',
+    delay: 0.5
+  });
+};
+
+// show header
+const showHeader = function() {
+  TweenMax.to(header, 0.4, {
+    opacity: 1,
+    display: 'flex',
+    delay: 0.8
+  });
+};
 
 //  Sidebar elements
 const closeNavBtn = document.querySelector('.closeSidebar');
@@ -165,10 +185,36 @@ const showProducts = function() {
   hideProducts(teaProducts);
 };
 
+const productModalShow = function() {
+  const productModal = document.querySelector('.productModal');
+  const productModalContent = document.querySelector('.productModalContent');
+  if (screen.width > 1200) {
+    TweenMax.to(productModal, 0.6, { width: '100vw', padding: '5rem 20rem' });
+  } else if (screen.width < 1200 && screen.width > 1024) {
+    TweenMax.to(productModal, 0.6, { width: '100vw', padding: '5rem 15rem' });
+  } else if (screen.width <= 1024 && screen.width > 700) {
+    TweenMax.to(productModal, 0.6, { width: '100vw', padding: '5rem 10rem' });
+  } else if (screen.width <= 700) {
+    TweenMax.to(productModal, 0.6, { width: '100vw', padding: '5rem 2rem' });
+  }
+
+  TweenMax.to(productModalContent, 0.6, { opacity: 1, delay: 0.7 });
+};
+const productModalHide = function() {
+  const productModal = document.querySelector('.productModal');
+  const productModalContent = document.querySelector('.productModalContent');
+  TweenMax.to(productModalContent, 0.6, { opacity: 0 });
+  TweenMax.to(productModal, 0.6, { width: '0', padding: '0', delay: 0.7 });
+};
+
 export {
   showMenu,
   closeMenu,
   contentContainerShow,
   contentContainerHide,
-  showProducts
+  showProducts,
+  productModalShow,
+  productModalHide,
+  showHeader,
+  hideHeader
 };
