@@ -71,7 +71,7 @@ if (sidebarHomeBtn) {
     // if the user is already on the homepage we just close the menu
     showLoader(aboutLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/');
+      window.location.replace('/');
     }, 500);
   });
 }
@@ -82,3 +82,15 @@ aboutPageMenu.addEventListener('click', function(e) {
   e.preventDefault();
   closeMenu();
 });
+
+// Sidebar products page
+const sidebarProductsBtn = document.getElementById('productBtn');
+if (sidebarProductsBtn) {
+  sidebarProductsBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    showLoader(aboutLoader, loaderImage);
+    setTimeout(function() {
+      window.location.replace('/products.html');
+    }, 500);
+  });
+}

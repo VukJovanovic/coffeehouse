@@ -39,7 +39,7 @@ if (homepageShapeOne) {
   homepageShapeOne.addEventListener('click', function() {
     showLoader(homepageLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/about.html');
+      window.location.replace('/about.html');
     }, 500);
   });
 }
@@ -49,7 +49,7 @@ if (homepageAboutBtn) {
     e.preventDefault();
     showLoader(homepageLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/about.html');
+      window.location.replace('/about.html');
     }, 500);
   });
 }
@@ -59,7 +59,7 @@ if (homepageShapeTwo) {
   homepageShapeTwo.addEventListener('click', function() {
     showLoader(homepageLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/products.html');
+      window.location.replace('/products.html');
     }, 500);
   });
 }
@@ -69,7 +69,7 @@ if (homepageProductBtn) {
     e.preventDefault();
     showLoader(homepageLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/products.html');
+      window.location.replace('/products.html');
     }, 500);
   });
 }
@@ -113,7 +113,7 @@ sidebarAboutBtn.addEventListener('click', function(e) {
   e.preventDefault();
   showLoader(homepageLoader, loaderImage);
   setTimeout(function() {
-    window.location.replace('http://127.0.0.1:8080/about.html');
+    window.location.replace('/about.html');
   }, 500);
 });
 
@@ -124,7 +124,7 @@ if (sidebarProductsBtn) {
     e.preventDefault();
     showLoader(homepageLoader, loaderImage);
     setTimeout(function() {
-      window.location.replace('http://127.0.0.1:8080/products.html');
+      window.location.replace('/products.html');
     }, 500);
   });
 }
