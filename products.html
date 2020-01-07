@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Coffee House | Kafeterija u centru Beograda</title>
+    <title>Coffee House | Pogledajte listu nasih proizvoda</title>
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <div class="homepageLoader">
+    <div class="productsLoader">
       <img src="./img/logo-black.svg" alt="" class="loaderImage" />
     </div>
     <header class="header">
       <div class="logoContainer">
         <a href="https://www.instagram.com/coffeehousem7/" target="_blank">
           <img
-            src="./img/Logo.svg"
+            src="./img/logo-black.svg"
             id="logoImage"
             alt="coffee house kafeterija u beogradu"
           />
@@ -23,9 +23,13 @@
       </div>
       <nav class="navigation">
         <a href="#" class="shoppingCart">
-          <img src="./img/cart.svg" id="shoppingCartImage" alt="" />
+          <img
+            src="./img/shopping-cart-black.svg"
+            id="shoppingCartImage"
+            alt=""
+          />
         </a>
-        <a href="#" class="burgerNav whiteBurger">
+        <a href="#" class="burgerNav blackBurger">
           <span></span>
           <span></span>
           <span></span>
@@ -102,45 +106,7 @@
     </div>
     <!-- End of sidebar navigation -->
 
-    <!-- Homepage container -->
-    <div class="homepageContainer active" id="homepage">
-      <div class="homepage__shape-1">
-        <img src="./img/homepageshape1.jpg" alt="" id="homepageImage-1" />
-        <div class="homepage__shape-overlay">
-          <a
-            href="#"
-            class="homepage__shape-overlay-button"
-            id="homepageAboutBtn"
-            ><span>O nama</span></a
-          >
-        </div>
-      </div>
-      <div class="homepage__shape-2">
-        <img src="./img/homepageimage2.jpg" alt="" id="homepageImage-2" />
-        <div class="homepage__shape-overlay">
-          <a
-            href="#"
-            class="homepage__shape-overlay-button"
-            id="homepageProductBtn"
-            ><span>Proizvodi</span></a
-          >
-        </div>
-      </div>
-      <div class="homepage__shape-3">
-        <img src="./img/homepageshape3.jpg" alt="" id="homepageImage-3" />
-        <div class="homepage__shape-overlay">
-          <a
-            href="#"
-            class="homepage__shape-overlay-button"
-            id="homepageShopBtn"
-            ><span>Prodavnica</span></a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- End of homepage container -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="./js/homepage.js"></script>
+    <script src="./js/products.js"></script>
   </body>
 </html>

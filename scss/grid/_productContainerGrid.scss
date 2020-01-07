@@ -1,9 +1,0 @@
-.productContainer {
-  .coffeeProducts,
-  .teaProducts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    grid-gap: 7rem;
-    justify-content: center;
-  }
-}

@@ -1,0 +1,14 @@
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10rem;
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+  .ourOfferHeading {
+    grid-column: 1 / -1;
+  }
+  .aboutViewAllProducts {
+    grid-column: 1 / -1;
+  }
+}

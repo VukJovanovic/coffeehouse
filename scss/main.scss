@@ -2,10 +2,13 @@
 @import './base/variables';
 @import './base/typography';
 @import './utils/mixins';
+@import './components/loader';
 @import './components/scrollBar';
 @import './components/header';
 @import './components/sideBar';
+@import './components/footer';
 @import './pages/homepage';
 @import './pages/contentContainer';
-@import './grid/productContainerGrid';
 @import './pages/productPage';
+@import './pages/aboutPage';
+@import './grid/aboutGrid';

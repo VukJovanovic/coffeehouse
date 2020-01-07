@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Marcellus|Montserrat:300,400&display=swap");
 html {
   width: 100%;
   height: 100%;
@@ -13,7 +13,7 @@ html {
 body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   width: 100%;
   height: 100%; }
@@ -31,6 +31,21 @@ a {
 
 body {
   font-family: 'Montserrat', sans-serif; }
+
+.homepageLoader,
+.aboutLoader,
+.productsLoader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100000;
+  background-color: #f1e5c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; }
 
 @media only screen and (min-width: 1024px) {
   ::-webkit-scrollbar {
@@ -104,16 +119,16 @@ header {
         header .navigation .burgerNav span:last-of-type {
           margin-bottom: 0; }
     header .navigation .whiteBurger span {
-      background-color: #eee; }
+      background-color: #fff; }
     header .navigation .blackBurger span {
       background-color: #30271c; }
 
 .headerScroll {
   padding-top: 1rem;
   padding-bottom: 0;
+  position: fixed;
   z-index: 19;
-  background-color: rgba(241, 229, 192, 0.8);
-  border-bottom: 1px solid #30271c; }
+  background-color: #f1e5c0; }
   .headerScroll .logoContainer {
     width: 7rem;
     height: 7rem;
@@ -123,9 +138,11 @@ header {
       height: 100%; }
   .headerScroll .navigation {
     height: 8rem; }
+    .headerScroll .navigation .burgerNav span {
+      height: 2px; }
 
 .sideBar__container {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 0;
@@ -138,7 +155,6 @@ header {
   overflow: hidden;
   flex-direction: column;
   padding: 8rem 0rem 2rem 0rem;
-  border-left: 1px solid #30271c;
   /* 
     Close sidebar button
   */
@@ -200,6 +216,38 @@ header {
     @media only screen and (max-width: 1024px) {
       .sideBar__container .sideBar__copyright {
         font-size: 1.5rem; } }
+
+.footer {
+  width: 100vw;
+  height: 200px;
+  background-color: #f1e5c0;
+  padding: 2rem 10rem;
+  display: flex;
+  align-items: center; }
+  @media only screen and (max-width: 1280px) {
+    .footer {
+      padding: 2rem 7rem; } }
+  @media only screen and (max-width: 1024px) {
+    .footer {
+      padding: 2rem 5rem; } }
+  .footer__location {
+    padding-left: 1rem;
+    border-left: 1px solid #30271c; }
+    .footer__location h3 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #30271c;
+      margin-bottom: 1rem;
+      letter-spacing: 1px; }
+    .footer__location-group p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      color: #30271c; }
+      .footer__location-group p:last-child {
+        margin-bottom: 0; }
+    .footer__location-group .footer__adress {
+      font-weight: 400; }
 
 .homepageContainer {
   width: 100vw;
@@ -404,13 +452,6 @@ header {
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch; }
 
-.productContainer .coffeeProducts,
-.productContainer .teaProducts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
-  grid-gap: 7rem;
-  justify-content: center; }
-
 .productModal {
   position: fixed;
   top: 0;
@@ -521,3 +562,143 @@ header {
     .productContainer .productCard__title, .productContainer .productCard__button {
       font-size: 1.5rem;
       font-weight: 300; }
+
+.aboutContainer {
+  width: 100vw;
+  height: 100%; }
+  .aboutContainer .aboutImageContainer {
+    width: 100%;
+    height: 350px;
+    position: relative; }
+    .aboutContainer .aboutImageContainer .aboutImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+    .aboutContainer .aboutImageContainer .aboutImageOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2); }
+  .aboutContainer .aboutContent {
+    background-color: #eee;
+    padding: 10rem 10rem;
+    position: relative; }
+    @media only screen and (max-width: 1280px) {
+      .aboutContainer .aboutContent {
+        padding: 8rem 7rem; } }
+    @media only screen and (max-width: 1024px) {
+      .aboutContainer .aboutContent {
+        padding: 5rem 5rem; } }
+    .aboutContainer .aboutContent .aboutCoffeeBackground {
+      position: absolute;
+      top: 10rem;
+      left: 50%;
+      transform: translateX(-50%); }
+      @media only screen and (max-width: 1024px) {
+        .aboutContainer .aboutContent .aboutCoffeeBackground {
+          display: none; } }
+    .aboutContainer .aboutContent .aboutTextContainer {
+      margin-bottom: 10rem; }
+      .aboutContainer .aboutContent .aboutTextContainer h1 {
+        font-family: 'Marcellus', serif;
+        width: max-content;
+        font-weight: 300;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 6rem;
+        color: #30271c; }
+        .aboutContainer .aboutContent .aboutTextContainer h1::after {
+          position: absolute;
+          content: '';
+          bottom: 0;
+          left: 0;
+          width: 60%;
+          height: 2px;
+          background-color: #f1e5c0; }
+      .aboutContainer .aboutContent .aboutTextContainer p {
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 3rem;
+        color: #30271c;
+        margin-bottom: 1.5rem;
+        text-align: justify; }
+        .aboutContainer .aboutContent .aboutTextContainer p:last-child {
+          margin-bottom: 0; }
+    .aboutContainer .aboutContent .ourOfferHeading {
+      font-family: 'Marcellus', serif;
+      width: max-content;
+      font-weight: 300;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 6rem;
+      color: #30271c; }
+      .aboutContainer .aboutContent .ourOfferHeading::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background-color: #f1e5c0; }
+    .aboutContainer .aboutContent .ourOfferBlock {
+      margin-bottom: 5rem; }
+      .aboutContainer .aboutContent .ourOfferBlock__heading {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem; }
+        .aboutContainer .aboutContent .ourOfferBlock__heading img {
+          width: 7rem; }
+        .aboutContainer .aboutContent .ourOfferBlock__heading h2 {
+          color: #30271c;
+          margin-left: 2rem;
+          font-weight: 300;
+          font-size: 2rem;
+          font-family: 'Marcellus', serif; }
+      .aboutContainer .aboutContent .ourOfferBlock__text {
+        font-weight: 300;
+        font-size: 1.7rem;
+        line-height: 2.2rem;
+        text-align: justify; }
+    .aboutContainer .aboutContent .aboutViewAllProducts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 7rem; }
+      .aboutContainer .aboutContent .aboutViewAllProducts h2 {
+        font-weight: 300;
+        font-size: 2rem;
+        margin-bottom: 2rem; }
+      .aboutContainer .aboutContent .aboutViewAllProducts__btn {
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: #30271c;
+        color: #f1e5c0;
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 4px 10px 15px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s; }
+        .aboutContainer .aboutContent .aboutViewAllProducts__btn:hover {
+          transform: translateY(-5px); }
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10rem; }
+  @media only screen and (max-width: 1024px) {
+    .aboutContent {
+      grid-template-columns: 1fr; } }
+  .aboutContent .ourOfferHeading {
+    grid-column: 1 / -1; }
+  .aboutContent .aboutViewAllProducts {
+    grid-column: 1 / -1; }

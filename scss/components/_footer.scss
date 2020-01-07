@@ -1,0 +1,40 @@
+.footer {
+  width: 100vw;
+  height: 200px;
+  background-color: $primary-color;
+  padding: 2rem 10rem;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 1280px) {
+    padding: 2rem 7rem;
+  }
+  @media only screen and (max-width: 1024px) {
+    padding: 2rem 5rem;
+  }
+
+  &__location {
+    padding-left: 1rem;
+    border-left: 1px solid $color-black;
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: $color-black;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    &-group {
+      p {
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+        color: $color-black;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .footer__adress {
+        font-weight: 400;
+      }
+    }
+  }
+}
