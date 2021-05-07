@@ -33,6 +33,6 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "postcss-modules": "^1.4.1",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
